@@ -1,8 +1,9 @@
 <?php
 /*
-Plugin Name: Corrección en Entradas con Historial
+Plugin Name: Correciones de entradas 
 Plugin URI: https://github.com/elambmex/plugin-correciones-notas
-Description: Caja de corrección
+Description: Este es un plugin personal de El Ambientalista Post para informar a nuestros lectores, 
+cuando hemos hecho correciones a nuestros articulos. Permitiendo que, el leector este informado de como actualizamos y como actuamos cuando tenemos errores. 
 Version: 1.2.0
 Author: El Ambientalista Post
 Author URI: https://elambientalistapost.org

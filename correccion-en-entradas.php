@@ -7,9 +7,8 @@ Version: 1.2.0
 Author: El Ambientalista Post
 Author URI: https://elambmex.com
 GitHub Plugin URI: https://github.com/elambmex/plugin-correciones-notas
-Primary Branch: main
+Primary Branch: master
 */
-
 // Agrega el campo personalizado al editor de entradas
 function cep_agregar_meta_box() {
     add_meta_box(
@@ -37,11 +36,6 @@ function cep_guardar_correccion($post_id) {
             '_cep_correccion',
             sanitize_textarea_field($_POST['cep_correccion'])
         );
-        update_post_meta(
-            $post_id,
-            '_cep_correccion_fecha',
-            current_time('Y-m-d')
-        );
     }
 }
 add_action('save_post', 'cep_guardar_correccion');
@@ -50,10 +44,8 @@ add_action('save_post', 'cep_guardar_correccion');
 function cep_mostrar_correccion_en_contenido($content) {
     if (is_singular('post')) {
         $correccion = get_post_meta(get_the_ID(), '_cep_correccion', true);
-        $fecha = get_post_meta(get_the_ID(), '_cep_correccion_fecha', true);
         if (!empty($correccion)) {
-            $fecha_formateada = date_i18n("j \d\e F \d\e Y", strtotime($fecha));
-            $correccion_html = '<div class="correccion-box"><strong>Corrección (' . esc_html($fecha_formateada) . '):</strong> ' . esc_html($correccion) . '</div>';
+            $correccion_html = '<div class="correccion-box"><strong>Corrección:</strong> ' . esc_html($correccion) . '</div>';
             $content .= $correccion_html;
         }
     }

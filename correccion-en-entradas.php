@@ -3,7 +3,7 @@
 Plugin Name: Correcciones de Entradas
 Plugin URI: https://github.com/elambmex/plugin-correciones-notas
 Description: Plugin personalizado de El Ambientalista Post para informar a nuestros lectores sobre correcciones realizadas en nuestros artículos.
-Version: 1.2.0
+Version: 1.1.0
 Author: El Ambientalista Post
 Author URI: https://elambmex.com
 GitHub Plugin URI: https://github.com/elambmex/plugin-correciones-notas
@@ -36,6 +36,11 @@ function cep_guardar_correccion($post_id) {
             '_cep_correccion',
             sanitize_textarea_field($_POST['cep_correccion'])
         );
+        update_post_meta(
+            $post_id,
+            '_cep_correccion_fecha',
+            current_time('Y-m-d')
+        );
     }
 }
 add_action('save_post', 'cep_guardar_correccion');
@@ -44,8 +49,10 @@ add_action('save_post', 'cep_guardar_correccion');
 function cep_mostrar_correccion_en_contenido($content) {
     if (is_singular('post')) {
         $correccion = get_post_meta(get_the_ID(), '_cep_correccion', true);
+        $fecha = get_post_meta(get_the_ID(), '_cep_correccion_fecha', true);
         if (!empty($correccion)) {
-            $correccion_html = '<div class="correccion-box"><strong>Corrección:</strong> ' . esc_html($correccion) . '</div>';
+            $fecha_formateada = date_i18n("j \d\e F \d\e Y", strtotime($fecha));
+            $correccion_html = '<div class="correccion-box"><strong>Corrección (' . esc_html($fecha_formateada) . '):</strong> ' . esc_html($correccion) . '</div>';
             $content .= $correccion_html;
         }
     }

@@ -1,12 +1,13 @@
-
 <?php
 /*
-Plugin Name: Corrección en Entradas
-Description: Agrega una caja de corrección personalizada en entradas individuales.
+Plugin Name: Corrección en Entradas con Historial
+Plugin URI: https://github.com/elambmex/plugin-correciones-notas
+Description: Caja de corrección
 Version: 1.0
 Author: El Ambientalista Post
+Author URI: https://elambientalistapost.org
+GitHub Plugin URI: https://github.com/elambmex/plugin-correciones-notas
 */
-
 // Agrega el campo personalizado al editor de entradas
 function cep_agregar_meta_box() {
     add_meta_box(

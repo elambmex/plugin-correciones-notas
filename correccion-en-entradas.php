@@ -1,13 +1,13 @@
 <?php
 /*
-Plugin Name: Correciones de entradas 
+Plugin Name: Correcciones de Entradas
 Plugin URI: https://github.com/elambmex/plugin-correciones-notas
-Description: Este es un plugin personal de El Ambientalista Post para informar a nuestros lectores, 
-cuando hemos hecho correciones a nuestros articulos. Permitiendo que, el leector este informado de como actualizamos y como actuamos cuando tenemos errores. 
+Description: Plugin personalizado de El Ambientalista Post para informar a nuestros lectores sobre correcciones realizadas en nuestros artículos.
 Version: 1.2.0
 Author: El Ambientalista Post
-Author URI: https://elambientalistapost.org
+Author URI: https://elambmex.com
 GitHub Plugin URI: https://github.com/elambmex/plugin-correciones-notas
+Primary Branch: main
 */
 
 // Agrega el campo personalizado al editor de entradas
